@@ -1,0 +1,88 @@
+/* General Page Background */
+.container {
+  margin: 20px auto; /* Centrer le conteneur */
+  padding: 20px; /* Ajouter de l'espace à l'intérieur */
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #9ac3f0; /* Couleur bleue */
+  padding: 15px;
+}
+
+.navbar-brand {
+  color: black;
+  font-size: 1.5rem;
+}
+
+/* Pour changer la couleur au survol */
+.navbar-brand:hover {
+  color: #ffffff; /* Couleur au survol (ex : blanc) */
+}
+
+/* Card Styling */
+.card {
+  border: none;
+  border-radius: 10px;
+  background-color: #ffffff; /* Fond blanc */
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.1); /* Ombre */
+}
+
+/* Button Styling */
+.btn-primary {
+  background-color: #007bff; /* Couleur du bouton principal */
+  border: none;
+}
+
+.btn-warning {
+  background-color: #ffc107; /* Couleur du bouton d'avertissement */
+}
+
+/* Table Styling */
+.table {
+  margin-top: 20px;
+  background-color: #ffffff; /* Fond blanc pour le tableau */
+}
+
+.table-dark {
+  background-color: #343a40; /* Couleur de fond sombre pour l'en-tête du tableau */
+  color: white; /* Couleur du texte en blanc */
+}
+
+/* Responsive Design */
+.table-responsive {
+  overflow-x: auto; /* Permettre le défilement horizontal sur les écrans plus petits */
+}
+
+/* Logout Link Styling */
+.logout-link {
+  color: black;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.logout-link:hover {
+  color: #ffdddd; /* Effet au survol */
+}
+
+/* Heading Styling */
+h1 {
+  color: #343a40; /* Texte sombre pour les titres */
+  font-weight: bold;
+}
+
+/* Drawer and Content Styling */
+.example-container {
+  display: flex;
+  height: 100vh;
+}
+
+mat-sidenav {
+  width: 250px;
+  background: #f8f9fa; /* Couleur claire pour le drawer */
+  padding: 10px;
+}
+
+mat-sidenav-content {
+  padding: 20px;
+}

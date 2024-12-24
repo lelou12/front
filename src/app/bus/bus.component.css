@@ -1,0 +1,104 @@
+/* Navbar */
+.custom-navbar {
+  background-color: #9ac3f0; /* Blue background */
+  padding: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.logout-link {
+  color: black;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.logout-link:hover {
+  color: #ffdddd; /* Hover effect */
+}
+
+.navbar-brand {
+  color: black;
+  font-size: 1.5rem;
+}
+
+/* Pour changer la couleur au survol */
+.navbar-brand:hover {
+  color: #ffffff; /* Couleur au survol (ex : blanc) */
+}
+
+/* Card for registration */
+.registration-card {
+  background-color: #f9f9f9; /* Light grey background */
+  border-radius: 15px;
+}
+
+.card {
+  border: 1px solid #ddd; /* Light border */
+}
+
+/* Table */
+.bus-table {
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.bus-table .thead-dark th {
+  background-color: #343a40;
+  color: white;
+  border: none;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f8f9fa; /* Light grey for odd rows */
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #007bff; /* Standard blue */
+  border-color: #007bff;
+}
+
+.btn-warning {
+  background-color: #ffc107; /* Warning yellow */
+  border-color: #ffc107;
+}
+
+.btn-success {
+  background-color: #28a745; /* Success green */
+  border-color: #28a745;
+}
+
+.btn-danger {
+  background-color: #dc3545; /* Danger red */
+  border-color: #dc3545;
+}
+
+.btn {
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+/* Container */
+.container {
+  background-color: #e9ecef; /* Soft grey background for container */
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 800px;
+  margin: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 2rem;
+  color: #343a40;
+}
+
+h1 {
+  color: #343a40; /* Dark text for headings */
+  font-weight: bold;
+}

@@ -1,0 +1,147 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Employee Management</a>
+    <a (click)="logout()" title="Logout" class="logout-link">
+      <fa-icon [icon]="faSignOutAlt"></fa-icon>
+    </a>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Employee Registration</h1>
+  <div class="card p-4">
+    <form>
+      <div class="form-group mb-3">
+        <label for="employeename" class="form-label">Employee Name</label>
+        <input 
+          type="text" 
+          [(ngModel)]="name" 
+          [ngModelOptions]="{standalone: true}" 
+          class="form-control" 
+          id="employeename" 
+          placeholder="Enter Name"
+        >
+      </div>
+      <div class="form-group mb-3">
+        <label for="employeeaddress" class="form-label">Address</label>
+        <input 
+          type="text" 
+          [(ngModel)]="address" 
+          [ngModelOptions]="{standalone: true}" 
+          class="form-control" 
+          id="employeeaddress" 
+          placeholder="Enter Address"
+        >
+      </div>
+      <div class="form-group mb-3">
+        <label for="Mobile" class="form-label">Mobile</label>
+        <input 
+          type="text" 
+          [(ngModel)]="mobile" 
+          [ngModelOptions]="{standalone: true}" 
+          class="form-control" 
+          id="Mobile" 
+          placeholder="Enter Mobile"
+        >
+      </div>
+      <div class="form-group mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input 
+          type="password" 
+          [(ngModel)]="password" 
+          [ngModelOptions]="{standalone: true}" 
+          class="form-control" 
+          id="password" 
+          placeholder="Enter Password"
+        >
+      </div>
+      <div class="form-group mb-3">
+        <label for="isemployer" class="form-label">Is Employer</label>
+        <select 
+          [(ngModel)]="isemployer" 
+          [ngModelOptions]="{standalone: true}" 
+          class="form-control" 
+          id="isemployer"
+        >
+          <option value="true">True</option>
+          <option value="false">False</option>
+        </select>
+      </div>
+      <button 
+        type="button" 
+        (click)="saveRecords()" 
+        class="btn btn-primary"
+      >
+        Save Employee
+      </button>
+    </form>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <h2 class="text-center">Employee List</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Mobile</th>
+        <th>Solde (MRU)</th>
+        <th>Commission</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let EmployeeItem of EmployeeArray">
+        <td>{{ EmployeeItem.name }}</td>
+        <td>{{ EmployeeItem.address }}</td>
+        <td>{{ EmployeeItem.mobile }}</td>
+        <td>{{ EmployeeItem.solde }} MRU</td>
+        <td>{{ EmployeeItem.commission }}%</td>
+        <td>
+          <button 
+            class="btn btn-primary" 
+            (click)="setUpdate(EmployeeItem)"
+          >
+            Edit
+          </button>
+          <button 
+            class="btn btn-danger" 
+            (click)="setDelete(EmployeeItem)"
+          >
+            Delete
+          </button>
+          <button 
+            class="btn btn-success" 
+            (click)="finishCourse(EmployeeItem.id)"
+          >
+            Finish Course
+          </button>
+          <button 
+            *ngIf="EmployeeItem.isemployer" 
+            class="btn btn-info" 
+            (click)="reduceSolde(EmployeeItem.id)"
+          >
+            Terminer
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Nouveau bloc ajouté -->
+<div class="container mt-5">
+  <h3>Employee Overview</h3>
+  <div *ngFor="let employee of EmployeeArray" class="card p-3 mb-3">
+    <p><strong>Name:</strong> {{ employee.name }}</p>
+    <p><strong>Solde:</strong> {{ employee.solde }}</p>
+    <p><strong>Commission:</strong> {{ employee.commission }}</p>
+    <button 
+      class="btn btn-success" 
+      (click)="finishCourse(employee.id)"
+    >
+      Finish Course
+    </button>
+  </div>
+</div>

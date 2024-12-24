@@ -1,0 +1,162 @@
+<div class="container mt-4">
+  <!-- Barre de navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Tableau de bord Administrateur</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Basculer la navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <button
+              class="btn btn-warning btn-sm"
+              (click)="logout()"
+            >
+              Déconnexion
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- En-tête -->
+  <h1 class="text-center mb-4">Gestion des Administrateurs</h1>
+
+  <!-- Formulaire pour ajouter ou mettre à jour un utilisateur -->
+  <form class="p-4 shadow-sm bg-light rounded">
+    <h4 class="text-center mb-4">
+      {{ currentAdminID ? 'Modifier les informations de l\'administrateur' : 'Ajouter un nouvel administrateur' }}
+    </h4>
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="name" class="form-label">Nom</label>
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          [(ngModel)]="name"
+          name="name"
+          placeholder="Saisir le nom"
+          required
+        />
+      </div>
+      <div class="col-md-6">
+        <label for="address" class="form-label">Adresse</label>
+        <input
+          type="text"
+          id="address"
+          class="form-control"
+          [(ngModel)]="address"
+          name="address"
+          placeholder="Saisir l'adresse"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="mobile" class="form-label">Téléphone</label>
+        <input
+          type="number"
+          id="mobile"
+          class="form-control"
+          [(ngModel)]="mobile"
+          name="mobile"
+          placeholder="Saisir le numéro de téléphone"
+          required
+        />
+      </div>
+      <div class="col-md-6">
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          [(ngModel)]="email"
+          name="email"
+          placeholder="Saisir l'adresse email"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Mot de passe</label>
+      <input
+        type="password"
+        id="password"
+        class="form-control"
+        [(ngModel)]="password"
+        name="password"
+        placeholder="Saisir le mot de passe"
+        [required]="!currentAdminID"
+      />
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <button
+        type="button"
+        class="btn btn-primary me-2"
+        (click)="currentAdminID ? UpdateRecords() : saveRecords()"
+      >
+        {{ currentAdminID ? 'Mettre à jour' : 'Ajouter' }}
+      </button>
+      <button type="reset" class="btn btn-secondary" (click)="resetForm()">
+        Réinitialiser
+      </button>
+    </div>
+  </form>
+
+  <!-- Table pour afficher les utilisateurs -->
+  <div class="mt-5">
+    <h3>Liste des utilisateurs</h3>
+    <table class="table table-hover table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Nom</th>
+          <th scope="col">Adresse</th>
+          <th scope="col">Téléphone</th>
+          <th scope="col">Email</th>
+          <th scope="col">Rôle</th>
+          <th scope="col">Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of AdminArray">
+          <td>{{ user.name }}</td>
+          <td>{{ user.address }}</td>
+          <td>{{ user.mobile }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.role || 'N/A' }}</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-success btn-sm me-2"
+              (click)="setUpdate(user)"
+            >
+              Modifier
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger btn-sm"
+              (click)="setDelete(user)"
+            >
+              Supprimer
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
